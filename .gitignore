@@ -1,0 +1,7 @@
+__pycache__
+.idea
+logs/
+zoho_token/*.pkl
+.pytest_cache/
+app.egg-info
+.coverage

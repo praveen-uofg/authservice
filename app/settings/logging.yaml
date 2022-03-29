@@ -1,0 +1,18 @@
+version: 1
+formatters:
+  azent:
+    format: '%(asctime)s %(levelname)s %(name)s %(threadName)s: %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: azent
+    stream: ext://sys.stdout
+loggers:
+  azent:
+    level: DEBUG
+    handlers: [console]
+    propagate: no
+root:
+  level: INFO
+  handlers: [console]

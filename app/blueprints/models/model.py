@@ -21,7 +21,7 @@ class Order(db.Model):
     user = db.Column(db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     created_date = db.Column(db.DateTime, nullable=False, server_default=db.func.current_timestamp())
 
-    product_orders = db.relationship('Product', secondary='product_orders', back_populates='orders')
+    products = db.relationship('Product', secondary='product_orders', back_populates='orders')
     user1 = db.relationship("User", primaryjoin='Order.user == User.id', backref="user_orders_0")
 
     @staticmethod
@@ -104,6 +104,8 @@ class Product(db.Model):
     created_date = db.Column(db.DateTime, nullable=False, server_default=db.func.current_timestamp())
     modified_date = db.Column(db.DateTime, nullable=False, server_default=db.func.current_timestamp(),
                               onupdate=db.func.current_timestamp())
+
+    orders = db.relationship('Order', secondary='product_orders', back_populates='products')
 
     def __init__(self, **kwargs):
         super(Product, self).__init__(**kwargs)

@@ -7,7 +7,7 @@ from app.utils.list_utils import to_list
 product_blueprint = Blueprint("product_api", __name__)
 
 
-@product_blueprint.route('', methods=['GET'])
+@product_blueprint.route("", methods=['GET'])
 @jwt_required
 def index():
     if not request.is_json:

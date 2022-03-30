@@ -11,12 +11,12 @@ from app.blueprints.error_handler.errors import errors
 
 def setup_app():
     app = Flask(__name__)
-    app.register_blueprint(ping_blueprint, url_prefix="/backend/v1/ping")
+    app.register_blueprint(ping_blueprint, url_prefix="/v1/ping")
     app.register_blueprint(errors)
-    app.register_blueprint(authentication_blueprint, url_prefix="/backend/v1/auth")
-    app.register_blueprint(order_blueprint, url_prefix="/backend/v1/order")
-    app.register_blueprint(product_blueprint, url_prefix="/backend/v1/product")
-    app.register_blueprint(product_order_blueprint, url_prefix="/backend/v1/orderProduct")
+    app.register_blueprint(authentication_blueprint, url_prefix="/v1/auth")
+    app.register_blueprint(order_blueprint, url_prefix="/v1/order")
+    app.register_blueprint(product_blueprint, url_prefix="/v1/product")
+    app.register_blueprint(product_order_blueprint, url_prefix="/v1/orderProduct")
 
     config_name = os.getenv('ENVIRONMENT')
     if not config_name:

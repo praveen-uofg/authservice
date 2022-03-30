@@ -38,10 +38,10 @@ def register():
     if not request.is_json:
         abort(400, description="Missing JSON in request")
     data = request.get_json()
-    if not all(key in data for key in {"first_name", "last_name", "email", "mobile" "password"}):
+    if not all(key in data for key in {"first_name", "last_name", "email", "mobile", "password"}):
         abort(400, description="Missing required parameters")
 
-    user = User.get_user(email=data.get("email"), mobile=data["mobile"])
+    user = User.get_user(email=data.get("email"), mobile=data.get("mobile"))
     if user:
         abort(409, description="Student already exists!")
 

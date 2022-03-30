@@ -1,6 +1,6 @@
 
 ### What is this repository for? ###
-This is the base python base repo for any project to kickstart.
+This is the simple auth service developed in Python using Flask framework.
 There are 2 major components to this:
 * Flask App: REST APIs
 
